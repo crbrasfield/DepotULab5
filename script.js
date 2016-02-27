@@ -28,10 +28,10 @@ if (key.which == 16){
 
 
 $(this).keydown(function(event) {
-  var keyCode = event.which;  
+  var keyCode = event.which;
   console.log(keyCode);
   console.log(String.fromCharCode(keyCode));
-  $("#" + String.fromCharCode(keyCode)) .css ({
+  $("#" + String.fromCharCode(keyCode).toLowerCase()) .css ({
       "background-color":"red"
   });
   console.log("#" + keyCode);
@@ -39,8 +39,9 @@ $(this).keydown(function(event) {
 
 $(this).keyup(function(event) {
   var keyCode = event.which;
+  console.log(String.fromCharCode(keyCode).toLowerCase());
   console.log(keyCode)
-  $("#" + String.fromCharCode(keyCode)) .css ({
+  $("#" + String.fromCharCode(keyCode).toLowerCase()) .css ({
       "background-color":"#f5f5f5"
   });
       
