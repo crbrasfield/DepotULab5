@@ -31,15 +31,17 @@ $(this).keydown(function(event) {
   var keyCode = event.which;  
   console.log(keyCode);
   console.log(String.fromCharCode(keyCode));
-  $("#" + keyCode) .css ({
+  $("#" + String.fromCharCode(keyCode)) .css ({
       "background-color":"red"
   });
+  console.log("#" + keyCode);
 })
 
 $(this).keyup(function(event) {
   var keyCode = event.which;
-  $("#" + keyCode) .css ({
-      "background color":"#f5f5f5"
+  console.log(keyCode)
+  $("#" + String.fromCharCode(keyCode)) .css ({
+      "background-color":"#f5f5f5"
   });
       
 })
