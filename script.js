@@ -8,22 +8,24 @@ $(document).ready(function () {
     var sentences = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
     var currentSentence = sentences[0];
     var totalLetters = sentences[0].length;
-    var currentLetter = currentSentence.charAt(0);
-    var nextLetter = currentSentence.charAt(+1)
+    var currentLetterIndex = 0;
+
     
 
-
+    console.log(totalLetters);
     sentenceToType(sentences[0]);
-    letterToType(currentLetter);
+    letterToType(currentSentence[currentLetterIndex]);
 
     $(document).keypress(function (e) {
         var userPress = String.fromCharCode(e.which)
         console.log(userPress)
 
-        if (userPress === currentLetter) {
+        if (userPress === currentSentence[currentLetterIndex]) {
             $('.glyphicon-ok').css('opacity','.9');
             $('.glyphicon-remove').css('opacity','.1');
             console.log('it works');
+            currentLetterIndex++;
+            letterToType(currentSentence[currentLetterIndex]);
             
         } else {
            $('.glyphicon-remove').css('opacity','.9'); 
