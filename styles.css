@@ -9,6 +9,7 @@
   letter-spacing: 3px;
 }
 
+
 #block {
   position: absolute;
   margin-top: 10px;
@@ -34,10 +35,14 @@
   font-size: 20px;
 }
 .glyphicon-ok {
-  color: #1DA237
+  color: #1DA237;
+  opacity: .1;
+  margin-right: 5px;
 }
 
 .glyphicon-remove {
-  color : #CD2626
+  color : #CD2626;
+  opacity: .1;
+  margin-left: 5px;
 }
 
