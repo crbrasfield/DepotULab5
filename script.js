@@ -21,6 +21,7 @@ $(document).ready(function () {
     $(document).keypress(function (e) {
         var userPress = String.fromCharCode(e.which)
         console.log(userPress)
+        
 
         if (userPress === currentSentence[currentLetterIndex]) {
             $('.glyphicon-ok').css('opacity','.9');
@@ -45,7 +46,7 @@ $(document).ready(function () {
            $('.glyphicon-ok').css('opacity','.1');
            console.log('wrong button');
            $('#'+ userPress).css({
-               "background-color": "red"
+               "background-color": "grey"
            })
           
            
@@ -106,7 +107,7 @@ $(this).on('keyup', function (key) {
 $(this).on('keydown', function (key) {
     if (key.which == 32) {
         $("#" + key.which).css({
-            "background-color": "red"
+            "background-color": "grey"
         });
         console.log(key);
 
@@ -119,6 +120,8 @@ $(this).on('keyup', function (key) {
         $("#" + key.which).css({
             "background-color": "#f5f5f5"
         });
+        $('.glyphicon-ok').css('opacity','.1');
+        $('.glyphicon-remove').css('opacity','.1');
         console.log(key);
 
     }
@@ -130,13 +133,13 @@ $(this).on('keyup', function (key) {
 $(this).on('keydown', function () {
     var keyCode = event.which;
     $("#" + String.fromCharCode(keyCode)).css({
-        "background-color": "red"
+        "background-color": "grey"
     });
     $("#" + (keyCode)).css({
-        "background-color": "red"
+        "background-color": "grey"
     });
     $("#" + String.fromCharCode(keyCode).toLowerCase()).css({
-        "background-color": "red"
+        "background-color": "grey"
     });
 
 });
@@ -153,7 +156,8 @@ $(this).on('keyup', function () {
     $("#" + String.fromCharCode(keyCode).toLowerCase()).css({
         "background-color": "#f5f5f5"
     });
-
+    $('.glyphicon-ok').css('opacity','.1');
+    $('.glyphicon-remove').css('opacity','.1');
 
 });
 
