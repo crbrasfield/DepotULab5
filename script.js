@@ -6,9 +6,12 @@ $(document).ready(function () {
 
 
     var sentences = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
-    var currentSentence = sentences[0];
+    var counter = 0;
+    var currentSentence = sentences[counter];
     var totalLetters = currentSentence.length;
     var currentLetterIndex = 0;
+    
+    
     console.log(totalLetters);
     
     
@@ -25,14 +28,17 @@ $(document).ready(function () {
             console.log('it works');
             currentLetterIndex++;
             letterToType(currentSentence[currentLetterIndex]);
-            
-                // if (currentLetterIndex === 48) {
-                //     sentenceToType(sentences[1]);
-                //     currentSentence === sentences[1];
-                //     currentLetterIndex === 0;
-                //     letterToType(currentSentence[currentLetterIndex]);
-                    
-                // } 
+            console.log(currentLetterIndex);
+            console.log(totalLetters);
+                if (currentLetterIndex === totalLetters) {
+                    console.log('it is complete');
+                    counter++;
+                    currentSentence = sentences[counter];
+                    currentLetterIndex = 0;
+                    totalLetters = currentSentence.length;
+                    sentenceToType(currentSentence);
+                    letterToType(currentSentence[currentLetterIndex]);
+                } 
             
         } else {
            $('.glyphicon-remove').css('opacity','.9'); 
@@ -41,10 +47,7 @@ $(document).ready(function () {
            $('#'+ userPress).css({
                "background-color": "red"
            })
-           
-           if (totalLetters === 48) {
-               console.log('completelasdf');
-           } 
+          
            
         }
         
