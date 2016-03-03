@@ -7,13 +7,12 @@ $(document).ready(function () {
 
     var sentences = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
     var currentSentence = sentences[0];
-    var totalLetters = sentences[0].length;
+    var totalLetters = currentSentence.length;
     var currentLetterIndex = 0;
-
-    
-
     console.log(totalLetters);
-    sentenceToType(sentences[0]);
+    
+    
+    sentenceToType(currentSentence);
     letterToType(currentSentence[currentLetterIndex]);
 
     $(document).keypress(function (e) {
@@ -27,11 +26,30 @@ $(document).ready(function () {
             currentLetterIndex++;
             letterToType(currentSentence[currentLetterIndex]);
             
+                // if (currentLetterIndex === 48) {
+                //     sentenceToType(sentences[1]);
+                //     currentSentence === sentences[1];
+                //     currentLetterIndex === 0;
+                //     letterToType(currentSentence[currentLetterIndex]);
+                    
+                // } 
+            
         } else {
            $('.glyphicon-remove').css('opacity','.9'); 
            $('.glyphicon-ok').css('opacity','.1');
            console.log('wrong button');
+           $('#'+ userPress).css({
+               "background-color": "red"
+           })
+           
+           if (totalLetters === 48) {
+               console.log('completelasdf');
+           } 
+           
         }
+        
+        
+        
     });
 });
 
@@ -44,9 +62,13 @@ function letterToType(i) {
     $('#next-letter').html(i);
 };
 
+function nextLetter(i) {
+    $('#next-letter').html(i);
+}
 
-
-
+function nextSentence(i) {
+    $('#words').html(i);
+}
 
 
 
@@ -81,7 +103,7 @@ $(this).on('keyup', function (key) {
 $(this).on('keydown', function (key) {
     if (key.which == 32) {
         $("#" + key.which).css({
-            "background-color": "yellow"
+            "background-color": "red"
         });
         console.log(key);
 
@@ -105,13 +127,13 @@ $(this).on('keyup', function (key) {
 $(this).on('keydown', function () {
     var keyCode = event.which;
     $("#" + String.fromCharCode(keyCode)).css({
-        "background-color": "yellow"
+        "background-color": "red"
     });
     $("#" + (keyCode)).css({
-        "background-color": "yellow"
+        "background-color": "red"
     });
     $("#" + String.fromCharCode(keyCode).toLowerCase()).css({
-        "background-color": "yellow"
+        "background-color": "red"
     });
 
 });
